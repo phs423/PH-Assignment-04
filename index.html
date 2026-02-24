@@ -40,7 +40,11 @@
         <section class="max-w-[60%] mx-auto mt-6">
             <div class="flex justify-between items-center">
                 <h2 class="font-bold">Available Jobs</h2>
-                <p class="text-[#64748B]"><span>0</span> jobs</p>
+                <p id="ac1" class="text-[#64748B]"><span id="availCount">0</span> jobs</p>
+                <p id="ac2" class="text-[#64748B] hidden"><span id="availCountInter">0</span> of <span
+                        id="availCount1">0</span> jobs</p>
+                <p id="ac3" class="text-[#64748B] hidden"><span id="availCountReject">0</span> of <span
+                        id="availCount2">0</span> jobs</p>
             </div>
 
             <div class="mt-2">
@@ -99,6 +103,12 @@
 
         </section>
 
+        <div id="noJobs1"
+            class="max-w-[60%] mx-auto mt-6 bg-white p-20 rounded-xl shadow flex flex-col justify-center items-center space-y-1 hidden">
+            <img src="./images/jobs.png" alt="">
+            <h2 class="font-bold text-xl">No jobs available</h2>
+            <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+        </div>
 
         <!-- rejected section -->
         <section id="rejectSection" class="max-w-[60%] mx-auto mt-6 hidden">

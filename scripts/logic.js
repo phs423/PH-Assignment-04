@@ -1,14 +1,27 @@
 
 
-
-
 document.getElementById('inter-btn').addEventListener('click', function () {
-    document.getElementById('allCards').classList.add('hidden');
-    document.getElementById('interviewSection').classList.remove('hidden');
-    document.getElementById('rejectSection').classList.add('hidden');
+    if (interviewList.length == 0) {
+        document.getElementById('allCards').classList.add('hidden');
+        document.getElementById('interviewSection').classList.remove('hidden');
+        document.getElementById('rejectSection').classList.add('hidden');
+        document.getElementById('noJobs1').classList.remove('hidden');
+    }
+    else {
+        document.getElementById('allCards').classList.add('hidden');
+        document.getElementById('interviewSection').classList.remove('hidden');
+        document.getElementById('rejectSection').classList.add('hidden');
+        document.getElementById('noJobs1').classList.add('hidden');
+    }
     document.getElementById('all-btn').classList.remove('btn-cl');
     document.getElementById('inter-btn').classList.add('btn-cl');
     document.getElementById('reject-btn').classList.remove('btn-cl');
+    document.getElementById('ac1').classList.add('hidden');
+    document.getElementById('ac2').classList.remove('hidden');
+    document.getElementById('ac3').classList.add('hidden');
+
+
+
     renderInterview();
 })
 document.getElementById('all-btn').addEventListener('click', function () {
@@ -18,14 +31,33 @@ document.getElementById('all-btn').addEventListener('click', function () {
     document.getElementById('all-btn').classList.add('btn-cl');
     document.getElementById('inter-btn').classList.remove('btn-cl');
     document.getElementById('reject-btn').classList.remove('btn-cl');
+    document.getElementById('ac1').classList.remove('hidden');
+    document.getElementById('ac2').classList.add('hidden');
+    document.getElementById('ac3').classList.add('hidden');
+    document.getElementById('noJobs1').classList.add('hidden');
+
 })
 document.getElementById('reject-btn').addEventListener('click', function () {
-    document.getElementById('allCards').classList.add('hidden');
-    document.getElementById('interviewSection').classList.add('hidden');
-    document.getElementById('rejectSection').classList.remove('hidden');
+    if (rejectList.length == 0) {
+        document.getElementById('allCards').classList.add('hidden');
+        document.getElementById('interviewSection').classList.add('hidden');
+        document.getElementById('rejectSection').classList.add('hidden');
+        document.getElementById('noJobs1').classList.remove('hidden');
+    }
+    else {
+        document.getElementById('allCards').classList.add('hidden');
+        document.getElementById('interviewSection').classList.add('hidden');
+        document.getElementById('rejectSection').classList.remove('hidden');
+        document.getElementById('noJobs1').classList.add('hidden');
+    }
     document.getElementById('all-btn').classList.remove('btn-cl');
     document.getElementById('inter-btn').classList.remove('btn-cl');
     document.getElementById('reject-btn').classList.add('btn-cl');
+    document.getElementById('ac1').classList.add('hidden');
+    document.getElementById('ac2').classList.add('hidden');
+    document.getElementById('ac3').classList.remove('hidden');
+
+
     renderRejected();
 })
 
@@ -40,6 +72,12 @@ let currentStatus = 'all';
 let total = document.getElementById('total');
 let interCount = document.getElementById('interCount');
 let rejectCount = document.getElementById('rejectCount');
+let availCount = document.getElementById('availCount');
+let availCount1 = document.getElementById('availCount1');
+let availCount2 = document.getElementById('availCount2');
+let availCountInter = document.getElementById('availCountInter');
+let availCountReject = document.getElementById('availCountReject');
+
 const allCardSection = document.getElementById('allCards')
 
 function toggleStyle(id) {
@@ -47,10 +85,18 @@ function toggleStyle(id) {
 
 }
 
+
+
 function calculateCount() {
     total.innerText = allCardSection.children.length;
+    availCount.innerText = allCardSection.children.length;
+    availCount1.innerText = allCardSection.children.length;
+    availCount2.innerText = allCardSection.children.length;
     interCount.innerText = interviewList.length;
+    availCountInter.innerText = interviewList.length;
     rejectCount.innerText = rejectList.length;
+    availCountReject.innerText = rejectList.length;
+
 }
 calculateCount()
 
