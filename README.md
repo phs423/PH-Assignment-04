@@ -8,7 +8,7 @@ Fast and specific.
 
 getElementsByClassName(className):
 Selects elements by class name.
-Returns a live HTMLCollection (auto-updates if DOM changes).
+Returns a live HTMLCollection.
 Can return multiple elements.
 
 querySelector(selector):
@@ -17,7 +17,7 @@ Returns one element.
 
 querySelectorAll(selector):
 Selects all elements matching a CSS selector.
-Returns a static NodeList (does NOT auto-update).
+Returns a static NodeList.
 
 2. How do you create and insert a new element into the DOM?
 ans:
@@ -45,7 +45,7 @@ Event Delegation is attaching a single event listener to a parent element to han
 It works because of event bubbling.
 
 It useful because,
-It Improves performance (fewer listeners)
+It Improves performance
 Works for dynamically added elements
 Cleaner and more maintainable code
 
@@ -53,8 +53,5 @@ Cleaner and more maintainable code
 ans:
 preventDefault():
 Stops the browser’s default behavior.
-Example: Prevent form submission or link navigation.
-
 stopPropagation():
 Stops the event from bubbling to parent elements.
-Prevents parent event handlers from running.
