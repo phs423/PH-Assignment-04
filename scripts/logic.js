@@ -178,7 +178,7 @@ function renderInterview() {
     for (let inter of interviewList) {
         console.log(inter);
         let div = document.createElement('div');
-        div.className = 'bg-white p-6 rounded-xl mt-6';
+        div.className = 'bg-white p-6 rounded-xl mt-6 shadow space-y-2';
         div.innerHTML = `
             <div class="flex justify-between items-center">
                     <h2 class="companyName font-bold text-xl">${inter.companyName}</h2>
@@ -202,7 +202,7 @@ function renderRejected() {
     for (let reject of rejectList) {
         console.log(reject);
         let div = document.createElement('div');
-        div.className = 'bg-white p-6 rounded-xl mt-6';
+        div.className = 'bg-white p-6 rounded-xl mt-6 shadow space-y-2';
         div.innerHTML = `
             <div class="flex justify-between items-center">
                     <h2 class="companyName font-bold text-xl">${reject.companyName}</h2>

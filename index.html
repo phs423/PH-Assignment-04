@@ -17,27 +17,27 @@
 
 <body class="bg-[#F8FAFC]">
 
-    <header class="max-w-[60%] mx-auto mt-12 pb-8 border-b">
+    <header class="max-w-[95%] md:max-w-[70%] mx-auto mt-12 pb-8 border-b">
         <h1 class="font-bold text-2xl">Job Application Tracker</h1>
-        <div class="flex gap-4 mt-4">
+        <div class="flex flex-wrap lg:flex-nowrap  gap-4 mt-4">
             <div class="w-full bg-white shadow p-4 rounded">
                 <p class="">Total</p>
                 <span id="total" class="font-bold">0</span>
             </div>
             <div class="w-full bg-white shadow p-4 rounded">
                 <p class="">Interview</p>
-                <span id="interCount" class="font-bold">0</span>
+                <span id="interCount" class="font-bold text-green-600">0</span>
             </div>
             <div class="w-full bg-white shadow p-4 rounded">
                 <p class="">Rejected</p>
-                <span id="rejectCount" class="font-bold">0</span>
+                <span id="rejectCount" class="font-bold text-red-600">0</span>
             </div>
         </div>
     </header>
 
     <main>
         <!-- Available Jobs -->
-        <section class="max-w-[60%] mx-auto mt-6">
+        <section class="max-w-[95%] md:max-w-[70%] mx-auto mt-6">
             <div class="flex justify-between items-center">
                 <h2 class="font-bold">Available Jobs</h2>
                 <p id="ac1" class="text-[#64748B]"><span id="availCount">0</span> jobs</p>
@@ -47,7 +47,7 @@
                         id="availCount2">0</span> jobs</p>
             </div>
 
-            <div class="mt-2">
+            <div class="mt-2 flex gap-1.5 flex-col md:flex-row">
                 <button onclick="toggleStyle('all-btn')" id="all-btn"
                     class=" bg-blue-200 px-4 py-2 rounded font-semibold btn-cl">All</button>
                 <button onclick="toggleStyle('inter-btn')" id="inter-btn"
@@ -58,9 +58,9 @@
         </section>
 
         <!-- Job Cards -->
-        <section id="allCards" class="max-w-[60%] mx-auto mt-6">
+        <section id="allCards" class="max-w-[95%] md:max-w-[70%] mx-auto mt-6">
             <!-- card 1-->
-            <div class="bg-white p-6 rounded-xl mt-6">
+            <div class="bg-white p-6 rounded-xl mt-6 shadow space-y-2">
                 <div class="flex justify-between items-center">
                     <h2 class="companyName font-bold text-xl">Mobile First Corp</h2>
                     <button id="dlt" class="dlt rounded-full bg-blue-200 p-2"><i
@@ -79,7 +79,7 @@
                 </div>
             </div>
             <!-- card 2-->
-            <div class="bg-white p-6 rounded-xl mt-6">
+            <div class="bg-white p-6 rounded-xl mt-6 shadow space-y-2">
                 <div class="flex justify-between items-center">
                     <h2 class="companyName font-bold text-xl">WebFlow Agency</h2>
                     <button id="dlt" class="dlt rounded-full bg-blue-200 p-2"><i
@@ -98,7 +98,7 @@
                 </div>
             </div>
             <!-- card 3-->
-            <div class="bg-white p-6 rounded-xl mt-6">
+            <div class="bg-white p-6 rounded-xl mt-6 shadow space-y-2">
                 <div class="flex justify-between items-center">
                     <h2 class="companyName font-bold text-xl">DataViz Solutions</h2>
                     <button id="dlt" class="dlt rounded-full bg-blue-200 p-2"><i
@@ -118,7 +118,7 @@
                 </div>
             </div>
             <!-- card 4-->
-            <div class="bg-white p-6 rounded-xl mt-6">
+            <div class="bg-white p-6 rounded-xl mt-6 shadow space-y-2">
                 <div class="flex justify-between items-center">
                     <h2 class="companyName font-bold text-xl">CloudFirst Inc</h2>
                     <button id="dlt" class="dlt rounded-full bg-blue-200 p-2"><i
@@ -137,7 +137,7 @@
                 </div>
             </div>
             <!-- card 5-->
-            <div class="bg-white p-6 rounded-xl mt-6">
+            <div class="bg-white p-6 rounded-xl mt-6 shadow space-y-2">
                 <div class="flex justify-between items-center">
                     <h2 class="companyName font-bold text-xl">Innovation Labs</h2>
                     <button id="dlt" class="dlt rounded-full bg-blue-200 p-2"><i
@@ -156,7 +156,7 @@
                 </div>
             </div>
             <!-- card 6-->
-            <div class="bg-white p-6 rounded-xl mt-6">
+            <div class="bg-white p-6 rounded-xl mt-6 shadow space-y-2">
                 <div class="flex justify-between items-center">
                     <h2 class="companyName font-bold text-xl">MegaCorp Solutions</h2>
                     <button id="dlt" class="dlt rounded-full bg-blue-200 p-2"><i
@@ -175,7 +175,7 @@
                 </div>
             </div>
             <!-- card 7-->
-            <div class="bg-white p-6 rounded-xl mt-6">
+            <div class="bg-white p-6 rounded-xl mt-6 shadow space-y-2">
                 <div class="flex justify-between items-center">
                     <h2 class="companyName font-bold text-xl">StartupXYZ</h2>
                     <button id="dlt" class="dlt rounded-full bg-blue-200 p-2"><i
@@ -194,7 +194,7 @@
                 </div>
             </div>
             <!-- card 8-->
-            <div class="bg-white p-6 rounded-xl mt-6">
+            <div class="bg-white p-6 rounded-xl mt-6 shadow space-y-2">
                 <div class="flex justify-between items-center">
                     <h2 class="companyName font-bold text-xl">TechCorp Industries</h2>
                     <button id="dlt" class="dlt rounded-full bg-blue-200 p-2"><i
@@ -218,19 +218,19 @@
         </section>
 
         <!-- interview section -->
-        <section id="interviewSection" class="max-w-[60%] mx-auto mt-6 hidden">
+        <section id="interviewSection" class="max-w-[95%] md:max-w-[70%] mx-auto mt-6 hidden">
 
         </section>
 
         <div id="noJobs1"
-            class="max-w-[60%] mx-auto mt-6 bg-white p-20 rounded-xl shadow flex flex-col justify-center items-center space-y-1 hidden">
+            class="max-w-[95%] md:max-w-[70%] mx-auto mt-6 bg-white p-20 rounded-xl shadow flex flex-col justify-center items-center space-y-1 hidden">
             <img src="./images/jobs.png" alt="">
-            <h2 class="font-bold text-xl">No jobs available</h2>
-            <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+            <h2 class="font-bold text-xl text-center">No jobs available</h2>
+            <p class="text-[#64748B] text-center">Check back soon for new job opportunities</p>
         </div>
 
         <!-- rejected section -->
-        <section id="rejectSection" class="max-w-[60%] mx-auto mt-6 hidden">
+        <section id="rejectSection" class="max-w-[95%] md:max-w-[70%] mx-auto mt-6 hidden">
 
         </section>
     </main>
