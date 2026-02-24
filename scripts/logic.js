@@ -1,36 +1,33 @@
-document.getElementById('all-btn').addEventListener('click', function () {
-    document.getElementById('all-btn').classList.add('btn-cl');
-    document.getElementById('inter-btn').classList.remove('btn-cl');
-    document.getElementById('reject-btn').classList.remove('btn-cl');
-})
-document.getElementById('inter-btn').addEventListener('click', function () {
-    document.getElementById('all-btn').classList.remove('btn-cl');
-    document.getElementById('inter-btn').classList.add('btn-cl');
-    document.getElementById('reject-btn').classList.remove('btn-cl');
-})
-document.getElementById('reject-btn').addEventListener('click', function () {
-    document.getElementById('all-btn').classList.remove('btn-cl');
-    document.getElementById('inter-btn').classList.remove('btn-cl');
-    document.getElementById('reject-btn').classList.add('btn-cl');
-})
+
+
 
 
 document.getElementById('inter-btn').addEventListener('click', function () {
     document.getElementById('allCards').classList.add('hidden');
     document.getElementById('interviewSection').classList.remove('hidden');
     document.getElementById('rejectSection').classList.add('hidden');
+    document.getElementById('all-btn').classList.remove('btn-cl');
+    document.getElementById('inter-btn').classList.add('btn-cl');
+    document.getElementById('reject-btn').classList.remove('btn-cl');
+    renderInterview();
 })
 document.getElementById('all-btn').addEventListener('click', function () {
     document.getElementById('allCards').classList.remove('hidden');
     document.getElementById('interviewSection').classList.add('hidden');
     document.getElementById('rejectSection').classList.add('hidden');
+    document.getElementById('all-btn').classList.add('btn-cl');
+    document.getElementById('inter-btn').classList.remove('btn-cl');
+    document.getElementById('reject-btn').classList.remove('btn-cl');
 })
 document.getElementById('reject-btn').addEventListener('click', function () {
     document.getElementById('allCards').classList.add('hidden');
     document.getElementById('interviewSection').classList.add('hidden');
     document.getElementById('rejectSection').classList.remove('hidden');
+    document.getElementById('all-btn').classList.remove('btn-cl');
+    document.getElementById('inter-btn').classList.remove('btn-cl');
+    document.getElementById('reject-btn').classList.add('btn-cl');
+    renderRejected();
 })
-
 
 
 
@@ -38,11 +35,17 @@ const interviewSection = document.getElementById('interviewSection');
 const rejectSection = document.getElementById('rejectSection');
 let interviewList = [];
 let rejectList = [];
+let currentStatus = 'all';
 
 let total = document.getElementById('total');
 let interCount = document.getElementById('interCount');
 let rejectCount = document.getElementById('rejectCount');
 const allCardSection = document.getElementById('allCards')
+
+function toggleStyle(id) {
+    currentStatus = id;
+
+}
 
 function calculateCount() {
     total.innerText = allCardSection.children.length;
@@ -63,9 +66,9 @@ mainContainer.addEventListener('click', function (event) {
         const jobType = parentNode.querySelector('.jobType').innerText;
         const statuss = parentNode.querySelector('.statuss').innerText;
         const descrpt = parentNode.querySelector('.descrpt').innerText;
-        
+
         parentNode.querySelector('.statuss').innerText = 'INTERVIEW';
-        
+
         const cardInfo = {
             companyName,
             jobCat,
@@ -74,12 +77,20 @@ mainContainer.addEventListener('click', function (event) {
             descrpt
         }
         const companyExist = interviewList.find(item => item.companyName == cardInfo.companyName)
-        
+
         if (!companyExist) {
             interviewList.push(cardInfo)
         }
+
+        rejectList = rejectList.filter(item => item.companyName != cardInfo.companyName);
+
+        if (currentStatus == 'reject-btn') {
+            renderRejected();
+        }
+
         calculateCount();
-        renderInterview();
+
+
     }
     else if (event.target.classList.contains('rejectButton')) {
         const parentNode = event.target.parentNode.parentNode;
@@ -88,9 +99,9 @@ mainContainer.addEventListener('click', function (event) {
         const jobType = parentNode.querySelector('.jobType').innerText;
         const statuss = parentNode.querySelector('.statuss').innerText;
         const descrpt = parentNode.querySelector('.descrpt').innerText;
-        
+
         parentNode.querySelector('.statuss').innerText = 'REJECTED';
-        
+
         const cardInfo = {
             companyName,
             jobCat,
@@ -99,12 +110,19 @@ mainContainer.addEventListener('click', function (event) {
             descrpt
         }
         const companyExist = rejectList.find(item => item.companyName == cardInfo.companyName)
-        
+
         if (!companyExist) {
             rejectList.push(cardInfo)
         }
+
+        interviewList = interviewList.filter(item => item.companyName != cardInfo.companyName);
+
+        if (currentStatus == 'inter-btn') {
+            renderInterview();
+        }
+
         calculateCount();
-        renderRejected();
+
     }
 
 })
@@ -125,8 +143,8 @@ function renderInterview() {
                 <p class="statuss bg-blue-200 px-4 py-2 rounded font-semibold max-w-fit">${inter.statuss}</p>
                 <p class="descrpt">${inter.descrpt}</p>
                 <div class="flex gap-2 flex-wrap">
-                    <button class="border-2 border-green-600 px-4 py-2 rounded font-semibold text-green-600">INTERVIEW</button>
-                    <button class="border-2 border-red-600 px-4 py-2 rounded font-semibold text-red-600">REJECTED</button>
+                    <button class="interviewButton border-2 border-green-600 px-4 py-2 rounded font-semibold text-green-600">INTERVIEW</button>
+                    <button class="rejectButton border-2 border-red-600 px-4 py-2 rounded font-semibold text-red-600">REJECTED</button>
                 </div>
         `;
 
@@ -149,8 +167,8 @@ function renderRejected() {
                 <p class="statuss bg-blue-200 px-4 py-2 rounded font-semibold max-w-fit">${reject.statuss}</p>
                 <p class="descrpt">${reject.descrpt}</p>
                 <div class="flex gap-2 flex-wrap">
-                    <button class="border-2 border-green-600 px-4 py-2 rounded font-semibold text-green-600">INTERVIEW</button>
-                    <button class="border-2 border-red-600 px-4 py-2 rounded font-semibold text-red-600">REJECTED</button>
+                    <button class="interviewButton border-2 border-green-600 px-4 py-2 rounded font-semibold text-green-600">INTERVIEW</button>
+                    <button class="rejectButton border-2 border-red-600 px-4 py-2 rounded font-semibold text-red-600">REJECTED</button>
                 </div>
         `;
 
