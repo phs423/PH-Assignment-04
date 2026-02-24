@@ -22,15 +22,15 @@
         <div class="flex gap-4 mt-4">
             <div class="w-full bg-white shadow p-4 rounded">
                 <p class="">Total</p>
-                <span id="" class="font-bold">0</span>
+                <span id="total" class="font-bold">0</span>
             </div>
             <div class="w-full bg-white shadow p-4 rounded">
                 <p class="">Interview</p>
-                <span id="" class="font-bold">0</span>
+                <span id="interCount" class="font-bold">0</span>
             </div>
             <div class="w-full bg-white shadow p-4 rounded">
                 <p class="">Rejected</p>
-                <span id="" class="font-bold">0</span>
+                <span id="rejectCount" class="font-bold">0</span>
             </div>
         </div>
     </header>
@@ -51,13 +51,27 @@
         </section>
 
         <!-- Job Cards -->
-         <section class="max-w-[60%] mx-auto mt-6">
+         <section id="allCards" class="max-w-[60%] mx-auto mt-6">
             <div class="bg-white p-6 rounded-xl mt-6">
                 <div class="flex justify-between items-center">
                     <h2 class="font-bold text-xl">Mobile First Corp</h2>
                     <button id="dlt" class="rounded-full bg-blue-200 p-2"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
                 <p class="text-[#64748B]">React Native Developer</p>
+                <p class="text-[#64748B]">Remote Full-time $130,000-$175,000</p>
+                <p class="bg-blue-200 px-4 py-2 rounded font-semibold max-w-fit">NOT APPLIED</p>
+                <p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                <div class="flex gap-2 flex-wrap">
+                    <button class="border-2 border-green-600 px-4 py-2 rounded font-semibold text-green-600">INTERVIEW</button>
+                    <button class="border-2 border-red-600 px-4 py-2 rounded font-semibold text-red-600">REJECTED</button>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-xl mt-6">
+                <div class="flex justify-between items-center">
+                    <h2 class="font-bold text-xl">Mobile First Corp 2 </h2>
+                    <button id="dlt" class="rounded-full bg-blue-200 p-2"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
+                <p class="text-[#64748B]">React Native Developer 2</p>
                 <p class="text-[#64748B]">Remote Full-time $130,000-$175,000</p>
                 <p class="bg-blue-200 px-4 py-2 rounded font-semibold max-w-fit">NOT APPLIED</p>
                 <p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
