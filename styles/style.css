@@ -4,3 +4,8 @@
     font-family: "Geist", sans-serif;
     font-optical-sizing: auto;
 }
+
+.btn-cl{
+    color: white;
+    background-color: blue;
+}
